@@ -10,6 +10,7 @@ import socket from './socket.js';
 import morgan from 'morgan';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 // .env
 dotenv.config();
@@ -50,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 // connect vuejs router
 app.use(history());

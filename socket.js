@@ -143,7 +143,7 @@ export default (server, app, sessionMiddleware) => {
 				.then(() => {
 					console.log('방 제거요청 성공');
 				})
-				.catch((err) => {
+				.catch(() => {
 					console.log('방 제거요청 실패');
 				});
 			}
