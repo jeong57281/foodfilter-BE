@@ -21,7 +21,7 @@ jobs:
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
             cd ${{ secrets.GCP_WEB_PATH }}
-            git checkout develop
+            git checkout master
             git pull
             npm install
             forever stop app.js
