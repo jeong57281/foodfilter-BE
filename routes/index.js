@@ -2,7 +2,7 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/api/maps', (req, res) => {
+router.post('/api/maps', (req, res) => {
 	global.roomArray.push({
 		room: req.query.roomId,
 		userInfo: []

@@ -59,7 +59,7 @@ export default (server, app, sessionMiddleware) => {
 			}
 			else {
 				const userIdx = room.userInfo.findIndex(x => x.sid === sid);
-				if (userIdx != -1) {
+				if (userIdx !== -1) {
 					room.userInfo[userIdx].same++;
 					// 이름 정보를 기존의 정보로 초기화한다.
 					socket.emit('init', {
@@ -83,7 +83,7 @@ export default (server, app, sessionMiddleware) => {
 			const room = getRoom();
 			if (room) {
 				const userIdx = room.userInfo.findIndex(x => x.sid === sid);
-				if (userIdx != -1) {
+				if (userIdx !== -1) {
 					room.userInfo[userIdx].name = data.name;
 					socket.to(roomId).emit('changeName', {
 						sid: sid,
@@ -96,7 +96,7 @@ export default (server, app, sessionMiddleware) => {
 			const room = getRoom();
 			if (room) {
 				const userIdx = room.userInfo.findIndex(x => x.sid === sid);
-				if (userIdx != -1) {
+				if (userIdx !== -1) {
 					room.userInfo[userIdx].loc = data.loc;
 					socket.to(roomId).emit('changeLoc', {
 						sid: sid,
@@ -109,7 +109,7 @@ export default (server, app, sessionMiddleware) => {
 			const room = getRoom();
 			if (room) {
 				const userIdx = room.userInfo.findIndex(x => x.sid === sid);
-				if (userIdx != -1) {
+				if (userIdx !== -1) {
 					room.userInfo[userIdx].filter = data.filter;
 					socket.to(roomId).emit('changeFilter', {
 						sid: sid,
@@ -122,7 +122,7 @@ export default (server, app, sessionMiddleware) => {
 			const room = getRoom();
 			if (room) {
 				const userIdx = room.userInfo.findIndex(x => x.sid === sid);
-				if (userIdx != -1) {
+				if (userIdx !== -1) {
 					if (!room.userInfo[userIdx].same) {
 						room.userInfo.splice(userIdx, 1);
 						socket.to(roomId).emit('exit', {
