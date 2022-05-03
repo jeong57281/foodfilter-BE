@@ -12,15 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: executing remote ssh commands using password
+      - name: executing remote ssh commands using key
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.GCP_SSH_PROD_HOST }}
-          username: ${{ secrets.GCP_SSH_USERNAME }}
-          password: ${{ secrets.GCP_SSH_PASSWORD }}
-          port: ${{ secrets.GCP_SSH_PORT }}
+          host: ${{ secrets.SSH_PROD_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ${{ secrets.GCP_WEB_PATH }}
+            cd ${{ secrets.WEB_PATH }}
             git pull origin master
             git checkout master
             npm install
