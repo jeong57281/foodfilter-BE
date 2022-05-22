@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon app",
-    "start": "cross-env NODE_ENV=production forever start app.js"
+    "start": "cross-env NODE_ENV=production forever start app.js",
+    "doc": "jsdoc -c jsdoc.config.json ."
   },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.1.16",
